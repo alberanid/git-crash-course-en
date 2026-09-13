@@ -1,6 +1,6 @@
 # Git crash course
 
-## Davide Alberani <da@erlug.linux.it> 2017-2018
+## Davide Alberani <da@mimante.net> 2017-2026
 
 <br />
 Crash course to not bang your head against the wall when you have to use Git.
@@ -116,7 +116,7 @@ That's all true, but its UI is a mess.
 ## Basics: use git config to setup the environment
 
     $ git config --global user.name "Davide Alberani"
-    $ git config --global user.email da@erlug.linux.it
+    $ git config --global user.email da@mimante.net
     $ git config --global color.ui auto
 
 Settings can be stored in these files (in reading order: the latter will overwrite previous settings):
@@ -992,7 +992,7 @@ To see ALL the times HEAD changed position:
 
 <br />
 
-### Davide Alberani <da@erlug.linux.it>
+### Davide Alberani <da@mimante.net>
 
 <br />
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License: http://creativecommons.org/licenses/by-sa/4.0/
