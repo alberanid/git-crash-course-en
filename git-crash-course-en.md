@@ -68,7 +68,7 @@ A distributed version-control system.
 It tracks changes to code and other text files, and supports collaborative development. It was created mainly to help people coordinate other people's code.
 
 <br />
-More details [on Wikipedia](https://en.wikipedia.org/wiki/Git%5F%28software%29).
+More details <a href="https://en.wikipedia.org/wiki/Git_(software)">on Wikipedia</a>.
 
 -----
 
