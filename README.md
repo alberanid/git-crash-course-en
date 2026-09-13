@@ -41,11 +41,11 @@ browser, without jQuery or Bootstrap.
 On desktop, the file states slide places the text and diagram side by side;
 on small screens, it uses a single column and allows long content to scroll.
 
-## Ortherwise...
+## Otherwise...
 
 Slides are in markdown format and can be [directly consulted](git-crash-course-en.md)
 
-## Licence
+## License
 
 Copyright 2017-2026 Davide Alberani <da@mimante.net>, RaspiBO <info@raspibo.org>
 

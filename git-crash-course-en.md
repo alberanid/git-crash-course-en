@@ -3,7 +3,7 @@
 ## Davide Alberani <da@mimante.net> 2017-2026
 
 <br />
-Crash course to not bang your head against the wall when you have to use Git.
+A crash course for using Git without banging your head against the wall.
 
 <br />
 <br />
@@ -18,7 +18,7 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 
 ## Who is this for
 
-For beginners who have to work in small teams
+For beginners who work in small teams.
 
 -----
 
@@ -26,7 +26,7 @@ For beginners who have to work in small teams
 
 ### Part 1
 
-Basics to work with local and remote repositories
+The basics of working with local and remote repositories
 
 ### Part 2
 
@@ -34,17 +34,17 @@ A workflow for collaborative development
 
 ### Part 3
 
-Some more advanced tool
+Some more advanced tools
 
 -----
 
 ## What we will talk about
 
-* basic, high-level, command line tools. Also known as **porcelain**, they are based on others, lower-level, commands (known as *plumbing*)
+* basic, high-level command-line tools. Also known as **porcelain**, they are built on lower-level commands known as *plumbing*
 
 * how to manage *branches*
 
-* basics to work with remote repositories
+* the basics of working with remote repositories
 
 * a workflow to cooperate with other developers
 
@@ -53,9 +53,9 @@ Some more advanced tool
 ## What we will NOT talk about
 
 * low-level (**plumbing**) commands
-* *GitHub* web GUI (sorry, it's just an hosting service)
+* the *GitHub* web interface (sorry, it is only a hosting service)
 * GUIs
-* how to admin a remote repository
+* how to administer a remote repository
 * flame wars on the merits of different workflows
 
 
@@ -63,9 +63,9 @@ Some more advanced tool
 
 ## What's Git
 
-A dirstributed control version tool.
+A distributed version-control system.
 
-It's used to keep track of changes to code (or other textual stuff) and to ease the cooperative development. It's worth to remember that it was born to help mostly who had to coordinate other people's code.
+It tracks changes to code and other text files, and supports collaborative development. It was created mainly to help people coordinate other people's code.
 
 <br />
 More details [on Wikipedia](https://en.wikipedia.org/wiki/Git%5F%28software%29).
@@ -82,11 +82,11 @@ More details [on Wikipedia](https://en.wikipedia.org/wiki/Git%5F%28software%29).
 
 ## Some will say
 
-*Git will have no secrets for you, once you'll understand...*
+*Git will hold no secrets for you once you understand...*
 
 * ...its data model (objects, blobs, trees, commits, refs, tags, ...)
 * ...that almost all operations are local (fetch, pull and push communicate with other repositories)
-* ...that commits are snapshots, and not deltas from the previous state
+* ...that commits are snapshots, not deltas from the previous state
 * ...some strange quantum theory
 
 <br />
@@ -113,7 +113,7 @@ That's all true, but its UI is a mess.
 
 -----
 
-## Basics: use git config to setup the environment
+## Basics: use git config to set up the environment
 
     $ git config --global user.name "Davide Alberani"
     $ git config --global user.email da@mimante.net
@@ -157,7 +157,7 @@ Check values and their source files:
 
 ## Part 1
 
-Where we give what's needed to work locally and remotely
+What you need to work locally and with remote repositories
 
 ---
 
@@ -176,15 +176,15 @@ Clone an existing remote repository:
 
 -----
 
-## create a repository: what happened?
+## Create a repository: what happened?
 
-It created the **.git** directory (the **repository**); if we made a clone, a reference to the "*origin*" remote was added.
+It creates the **.git** directory (the **repository**). If we cloned a repository, Git also added a reference to the **origin** remote.
 
 <br />
 
 ### Bonus track
 
-* remote repositories are usually created with **--bare** (they have no working directory); they receive pushes and provide data for fetches. Nobody works directly on them: developers commit on their own clones and push the changes.
+* remote repositories are usually created with **--bare** (they have no working directory); they receive pushes and provide data for fetches. Nobody works directly in them: developers commit in their own clones and push the changes.
 
 -----
 
@@ -234,9 +234,9 @@ Let's see what happened:
 
 -----
 
-## add and commit: what happened?
+## Add and commit: what happened?
 
-We added a file to the staging area, and saved a snapshot of our work. If we are in a branch, this branch now points to the new commit (HEAD still point to the branch, so it also points to the new commit).
+We added a file to the staging area and saved a snapshot of our work. If we are on a branch, that branch now points to the new commit. HEAD still points to the branch, so it also points to the new commit.
 
 <br />
 
@@ -244,8 +244,8 @@ We added a file to the staging area, and saved a snapshot of our work. If we are
 
 * guess what **git rm** and **git mv** do
 * [commit often](https://sethrobertson.github.io/GitBestPractices/)
-* how to write [a nice commit message](https://chris.beams.io/posts/git-commit/)? Issue, short title, long description
-* it doesn't save empty directories; if needed, add a *.gitkeep* (just a convention)
+* how to write [a good commit message](https://chris.beams.io/posts/git-commit/): issue, short title, long description
+* Git does not save empty directories; if needed, add a *.gitkeep* file (a convention only)
 * create a **.gitignore** file to exclude untracked files: it does not stop tracking files already tracked
 
 -----
@@ -260,8 +260,8 @@ The hash depends on the commit contents: message, author, committer, dates, file
 
 ### Bonus track
 
-* it's possible to shorten the hashes, as long as they stay unique (e.g. *6d769*)
-* for more details see [anatomy of a Git commit](https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html) and [Git Internals](https://git-scm.com/book/it/v2/Git-Internals-Git-References)
+* hashes can be shortened as long as they remain unique (e.g. *6d769*)
+* for more details, see [anatomy of a Git commit](https://blog.thoughtram.io/git/2014/11/18/the-anatomy-of-a-git-commit.html) and [Git Internals](https://git-scm.com/book/it/v2/Git-Internals-Git-References)
 
 -----
 
@@ -271,15 +271,15 @@ The hash depends on the commit contents: message, author, committer, dates, file
 
 Shows commits reachable from HEAD (or the specified references), following their parents. **--all** includes all branches and other references.
 
-You can limit the output to the latest N commits with ***-N***
+You can limit the output to the latest N commits with **-N**.
 
 <br />
 
 ### Bonus track
 
 * see commits that changed a given file: **git log -- file.txt**
-* to see information about a single commit you can also use **git show**
-* information about who edited the lines of a file: **git blame file.txt**
+* see information about a single commit: **git show**
+* see who edited the lines of a file: **git blame file.txt**
 
 -----
 
@@ -311,7 +311,7 @@ A tag is a pointer to a commit:
 
 ## Damage control
 
-How to modify the last commit (change commit message or author, or change a file - in this case you first need to modify it in the working directory and then do *git add*):
+Modify the last commit by changing its message or author, or by first changing a file in the working directory and then running *git add*:
 
     $ git commit --amend [--author="Name Surname <user@example.com>"]
 
@@ -332,13 +332,13 @@ Overwrite a working directory file with the version in the staging area (**disca
 
 ## Damage control: harder
 
-I made a mess in the working directory. Let's bring everything to the last commited state:
+I made a mess in the working directory. Let's return everything to the last committed state:
 
     $ git reset --hard HEAD
 
 **Discards uncommitted changes to tracked files**, including staged changes. It may delete untracked files that obstruct the reset; it is not a general cleanup of untracked files.
 
-I want to create a new commit that revert the changes introduced in a given commit:
+I want to create a new commit that reverts the changes introduced by a given commit:
 
     $ git revert [-n] <commit>
 
@@ -348,8 +348,8 @@ With **-n**, it prepares the reversal without creating a commit. For conflicts: 
 
 ### Bonus track
 
-* more [informantion on reset](https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard)
-* workflow [to solve problems ](http://justinhileman.info/article/git-pretty/git-pretty.png)
+* more [information about reset](https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard)
+* a [workflow for solving problems](http://justinhileman.info/article/git-pretty/git-pretty.png)
 * [some useful commands](http://ohshitgit.com/) to solve mistakes
 
 ---
@@ -394,7 +394,7 @@ Create and move in a single command (only if the branch doesn't exist):
 
 ### Bonus track
 
-* moving, Git tries to keep the changes in the working directory and staging area
+* when switching branches, Git tries to keep the changes in the working directory and staging area
 
 -----
 
@@ -404,9 +404,9 @@ Create and move in a single command (only if the branch doesn't exist):
 
 * give [meaningful names](http://www.guyroutledge.co.uk/blog/git-branch-naming-conventions/); use prefixes like *bugfix/*, *fix/*, *improvement/*, *feature/*, *task/* and issue numbers
 
-* get used to create a new branch (that usually will start from *main*) **each time** you need to fix a bug or develop a new feature
+* get used to creating a new branch (which will usually start from *main*) **each time** you need to fix a bug or develop a new feature
 
-* may be logically divided in *feature* (o *topic*), *release*, *integration* branches and so on
+* branches can be logically divided into *feature* (or *topic*), *release*, and *integration* branches, and so on
 
 ---
 
@@ -436,7 +436,7 @@ main was behind compared to fix/bug-123, and so we simply moved main's pointer. 
 
 -----
 
-## Conflicts resolution
+## Conflict resolution
 
     $ git branch fix/bug-123
     $ git checkout fix/bug-123
@@ -457,7 +457,7 @@ main was behind compared to fix/bug-123, and so we simply moved main's pointer. 
 
 -----
 
-## Conflicts resolution
+## Conflict resolution
 
 Let's merge:
 
@@ -470,7 +470,7 @@ Let's merge:
 
 ### Bonus track
 
-* what happens to *C* commit, if we delete the fix/bug-123 branch?
+* what happens to commit *C* if we delete the fix/bug-123 branch?
 
 -----
 
@@ -484,7 +484,7 @@ Not all conflicts have markers (for example, deleted or binary files). To cancel
 
 ### Bonus track
 
-* you can use **meld** to solve the conflicts
+* you can use **Meld** to resolve conflicts
 
 ---
 
@@ -531,9 +531,9 @@ Download updates and integrate origin/main into the current branch (here we assu
 
 * **remote branch**: a branch on a remote repository
 
-* **remote tracking branch**: local copy of a remote branch; you can update it with fetch, but can't work directly on it
+* **remote-tracking branch**: a local copy of a remote branch; you can update it with fetch, but cannot work directly on it
 
-* **local tracking branch**: a local branch you can work on, tracking another branch (usually a remote tracking branch)
+* **local tracking branch**: a local branch you can work on that tracks another branch (usually a remote-tracking branch)
 
 * if *branch-1* does not exist locally and only one remote has that branch name, **git checkout branch-1** normally creates a local branch with upstream **origin/branch-1**. Explicit form: **git checkout --track origin/branch-1**
 
@@ -553,22 +553,22 @@ Send local changes to a remote branch:
 
 ### Bonus track
 
-* by default, git push does not send tags, which must be pushed separately with the *--tags* argument
-* how to remove a remote branch: **git push --delete origin branch-name**
+* by default, **git push** does not send tags; push them separately with the **--tags** option
+* remove a remote branch with: **git push --delete origin branch-name**
 
 -----
 
 ## Talking about remote history...
 
-A thing to **NEVER** do (unless you know exactly what you will face): change an already-pushed history.
+A thing to **NEVER** do, unless you know exactly what you are facing: change history that has already been pushed.
 
-That's because if someone else is working on the same remote branch, the repositories will no longer be coherent.
+If someone else is working on the same remote branch, rewriting its history will leave their repository out of sync.
 
 ---
 
 ## Part 2
 
-Where we will show a ready-to-use workflow, to work with a remote repository as a team
+A ready-to-use workflow for working as a team with a remote repository
 
 ---
 
@@ -592,7 +592,7 @@ The main workflows are:
 * feature branch
 * gitflow
 * forking
-* something kept together with rubber bands
+* something held together with rubber bands
 
 Some resources to decide:
 
@@ -614,7 +614,7 @@ We'll see the **forking workflow**. It's not inherently the best, but it is comm
 
 ## Forking workflow: maintainer setup
 
-The project maintainer created the remote upstream repository and a local clone.
+The project maintainer creates the remote upstream repository and a local clone.
 
     $ git clone https://git.lattuga.net/maintainer/repo.git
 
@@ -624,7 +624,7 @@ The project maintainer created the remote upstream repository and a local clone.
 
 ## Forking workflow: developer setup
 
-The developer now will:
+The developer now:
 
 * create a remote **fork** of the upstream repository
 
@@ -638,7 +638,7 @@ The developer now will:
 
 ## Forking workflow: developer setup
 
-The developer will now crete a local **clone** of the remote repository. It's a good idea to add an "**upstream**" remote that points to the maintainer's repository:
+The developer now creates a local **clone** of the remote repository. It is a good idea to add an **upstream** remote that points to the maintainer's repository:
 
     $ git clone https://git.lattuga.net/developer/repo.git
     $ cd repo
@@ -652,7 +652,7 @@ The developer will now crete a local **clone** of the remote repository. It's a 
 
 The developer writes a fix to be applied to the main branch of the upstream repository.
 
-First of all, it's a good idea to sync the local main branch with the upstream one, to work on up-to-date code:
+First, sync the local main branch with upstream to work on up-to-date code:
 
     $ git checkout main
     $ git pull --ff-only upstream main
@@ -673,7 +673,7 @@ First of all, it's a good idea to sync the local main branch with the upstream o
 
 -----
 
-## Forking workflow: do our work
+## Forking workflow: do the work
 
     $ # introduce the fix
     $ git add file.txt
@@ -686,7 +686,7 @@ First of all, it's a good idea to sync the local main branch with the upstream o
 
 ## Forking workflow: pull request
 
-Now the developer goes to the web page of the fork and creates a **pull request**.
+The developer then goes to the fork's web page and creates a **pull request**.
 
 <img style="width:300px" src="images/worflow-developer-pull-request.png" data-action="zoom">
 
@@ -698,10 +698,10 @@ Now the developer goes to the web page of the fork and creates a **pull request*
 
 ## Forking workflow: pull request
 
-"Pull request" is not (exactly) a concept of Git itself. It's something built upon it, to ease the collaboration between developers.
+"Pull request" is not, strictly speaking, a Git concept. It is built on Git to make collaboration easier.
 
-The pull request we created above just says: "I suggest to apply the changes in the *developer:fix/bug-123* branch onto *maintainer:main*"
-Now the developer, project maintainer and others can discuss the merit of the changes.
+The pull request above says: "I suggest applying the changes in the *developer:fix/bug-123* branch to *maintainer:main*."
+The developer, project maintainer, and others can then discuss the changes.
 
 If needed, the developer or other authorized users can add new commits with another push.
 
@@ -709,11 +709,11 @@ If needed, the developer or other authorized users can add new commits with anot
 
 ## Forking workflow: merging
 
-Once everyone is satisfied, the project maintainer will merge the code on *maintainer:main*.
+Once everyone is satisfied, the project maintainer merges the code into *maintainer:main*.
 
 **If there are no conflicts**, the merge can be done directly from the web GUI of the upstream repository.
 
-If there are conflicts, the project maintainer can ask the developer to resolve them on their branch, or add a remote pointing to the repository of *developer*, fetch *developer:fix/bug-123*, merge it on main and then (after the conflicts are solved) push it on the upstream repository.
+If there are conflicts, the project maintainer can ask the developer to resolve them on their branch, or add a remote for the developer's repository, fetch *developer:fix/bug-123*, merge it into main, resolve the conflicts, and push to the upstream repository.
 
 <img style="width:300px;" src="images/worflow-maintainer-local-fix.png" data-action="zoom">
 
@@ -744,7 +744,7 @@ For example, with GitHub:
 
 ## Forking workflow: developer's setup summary
 
-1. fork on the web GUI
+1. create a fork in the web interface
 1. local clone of the fork: **git clone https://git.lattuga.net/developer/repo.git**
 1. enter the clone: **cd repo**
 1. add a remote pointing to the upstream repository: **git remote add upstream https://git.lattuga.net/maintainer/repo.git**
@@ -757,9 +757,9 @@ For example, with GitHub:
 1. create a branch to work on: **git checkout -b fix/bug-123**
 1. edit files, then run **git add file.txt** and **git commit**
 1. optionally, update and rebase: **git fetch upstream**, then **git rebase upstream/main**
-1. sends changes to the remote repository: **git push --set-upstream origin fix/bug-123**
-1. create a pull request on the web GUI
-1. if needed, the developer updates the pull request with more commits and pushes of fix/bug-123
+1. send changes to the remote repository: **git push --set-upstream origin fix/bug-123**
+1. create a pull request in the web interface
+1. if needed, update the pull request with more commits pushed to fix/bug-123
 
 -----
 
@@ -768,13 +768,13 @@ For example, with GitHub:
 ## Forking workflow: maintainer's work summary
 
 1. receive and evaluate a pull request
-1. if it can be merged without conflicts, the merge can be done on the web GUI
+1. if it can be merged without conflicts, merge it in the web interface
 
 *Otherwise the maintainer will:*
 
 1. if not already done, add a remote for the developer's repository: **git remote add developer https://git.lattuga.net/developer/repo.git**
 1. download the developer's branches: **git fetch developer**
-1. move to main: **git checkout main**
+1. switch to main: **git checkout main**
 1. start the merge: **git merge --no-ff developer/fix/bug-123**
 1. if there are conflicts, resolve them, then run **git add file.txt** and **git commit**
 1. send the commits to the remote repository: **git push origin main**
@@ -783,17 +783,17 @@ For example, with GitHub:
 
 ## Part 3
 
-Where we will see some advanced tools
+Some advanced tools
 
 ---
 
 ## How to reference commits
 
-Going up of 3 livels, always following the first parent commit (in case of merge):
+Go up three levels, always following the first parent commit (in case of a merge):
 
     $ git show -s HEAD~3
 
-Going up of 1 level, following the second parent commit (in case of merge):
+Go up one level, following the second parent commit (in case of a merge):
 
     $ git show -s HEAD^2
 
@@ -806,13 +806,13 @@ Going up of 1 level, following the second parent commit (in case of merge):
 
 ## How to reference commits: range
 
-**Double dot range**. Doing a *diff*, shows changes between "main" and "branch"; doing a *log* shows commits that can be reached by "branch" but not from "main":
+**Double-dot range**. With *diff*, it shows changes between "main" and "branch"; with *log*, it shows commits reachable from "branch" but not from "main":
 
     $ git diff main..branch
 
 <br />
 
-**Triple dot range**. Doing a *diff*, shows changes between the forking point of "main" and "branch" and "branch" itself; doing a *log*, shows commits that are reachable from "main" or "branch" but not by both of them:
+**Triple-dot range**. With *diff*, it shows changes between the branch point of "main" and "branch" and "branch" itself; with *log*, it shows commits reachable from either "main" or "branch", but not both:
 
     $ git log --left-right main...branch
 
@@ -841,9 +841,9 @@ To cancel the operation in progress: **git cherry-pick --abort**.
 
 -----
 
-## cherry-pick: what happened?
+## Cherry-pick: what happened?
 
-It takes a commit (usually) from another branch and apply it in the current branch.
+It takes a commit, usually from another branch, and applies it to the current branch.
 
 New commits are created.
 
@@ -851,13 +851,13 @@ New commits are created.
 
 ### When to use it?
 
-For example to backport a fix on different release branches, or if you noticed that a commit was meant to be done on a different branch.
+For example, to backport a fix to different release branches, or when you notice that a commit belongs on another branch.
 
 ---
 
 ## Put the pieces back together: rebase
 
-Let's recreate the same situation when we used merge (divergent branches) and then:
+Let's recreate the situation from the merge example, with divergent branches:
 
     $ git checkout fix/bug-123
     $ git rebase main
@@ -877,7 +877,7 @@ In this example, the commits unique to fix/bug-123 were reapplied starting from 
 
 ## Rebase: when to use it?
 
-When you need to move multiple commits and/or you need to do a "clean" merge. It can be done by the developer before a pull request is opened, to ease the job of the maintainer or by the mainter just before the merge, to get a linear history.
+Use it when you need to move multiple commits or want a clean merge. A developer can rebase before opening a pull request to make the maintainer's work easier, or the maintainer can rebase just before merging to produce a linear history.
 
 <br />
 
@@ -913,7 +913,7 @@ It's especially useful when we have finished the work on a branch, and we want t
 
 ## Partial work: commit only some lines of a file
 
-Let's edit a file in multiple lines, and then add it to the staging area with *--patch*:
+Let's edit multiple lines in a file, then add selected changes to the staging area with *--patch*:
 
     $ git add --patch
 
@@ -921,7 +921,7 @@ Let's edit a file in multiple lines, and then add it to the staging area with *-
 
 ### When to use it?
 
-For example when you don't want to include in a commit a debug line, but you still want to keep it in the working directory for future use.
+For example, when you do not want to include a debug line in a commit but still want to keep it in the working directory for later use.
 
 -----
 
@@ -953,7 +953,7 @@ Reapply a stash and, after checking the result, delete it (**stash pop** does bo
 
 ### When to use it?
 
-When we want to move to another branch, but we are still not ready to commit the (conflicting) changes present in the working directory.
+When you want to switch branches but are not ready to commit the changes in the working directory.
 
 -----
 
@@ -970,19 +970,19 @@ It is local, is not transferred by push or clone, and its entries expire: it doe
 
 ### When to use it?
 
-* sometimes it's useful to see how we moved between branches
+* to see how we moved between branches
 * to recover a commit no longer reachable from a branch: find its hash in the reflog, then run **`git branch recovery <hash>`**; this cannot recover changes never saved in Git
 
 ---
 
-## Misc stuff
+## Miscellaneous
 
-* handle big files: https://git-lfs.github.com/
-* another option to handle big files: https://git-annex.branchable.com/
+* handle large files: https://git-lfs.github.com/
+* another option for large files: https://git-annex.branchable.com/
 * manage the /etc directory: etckeeper
 * manage multiple repositories: https://source.android.com/source/using-repo
-* git repository manager: https://about.gitlab.com/
-* another git repository manager: https://gogs.io/
+* Git repository manager: https://about.gitlab.com/
+* another Git repository manager: https://gogs.io/
 
 -----
 
@@ -1008,12 +1008,12 @@ It is local, is not transferred by push or clone, and its entries expire: it doe
 * Learn Git Branching: http://learngitbranching.js.org/
 * Git ready: http://gitready.com/
 * Git Cookbook: https://git.seveas.net/
-* tutorial di Atlassian: https://www.atlassian.com/git/tutorials
+* Atlassian tutorial: https://www.atlassian.com/git/tutorials
 * A visual Git reference: https://marklodato.github.io/visual-git-guide/index-en.html
 
 ### Utilities
 
-* bash prompt: https://github.com/magicmonty/bash-git-prompt
+* Bash prompt: https://github.com/magicmonty/bash-git-prompt
 * Meld: http://meldmerge.org/
 
 ---
