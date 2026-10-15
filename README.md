@@ -33,6 +33,20 @@ The reveal.js submodule is pinned to
 syntax highlighting, zoom and notes plugins load from the compiled files in
 `reveal.js/dist/`. No npm dependencies are needed.
 
+To update reveal.js, choose a stable upstream release and check it out in the
+submodule (replace `<version>` with the release tag):
+
+    $ git -C reveal.js fetch --tags origin
+    $ git -C reveal.js checkout --detach <version>
+    $ python3 -m http.server 8000 --bind 127.0.0.1
+
+Check the slides at <http://127.0.0.1:8000>, update the version and commit above,
+and include the changed `reveal.js` submodule pointer in the parent repository's
+commit. Use Python directly to test a candidate release: `./run.sh` restores
+the submodule commit recorded in the parent repository's index.
+The framework's assets and plugins are maintained in the submodule; this
+repository only keeps the presentation's own styles and scripts.
+
 Use the arrow keys to navigate; the URL preserves the current slide.
 Click a diagram to enlarge it, or select it with Tab and press Enter.
 Esc or the “Close” button closes the image. Ctrl/Cmd-click opens the image
@@ -52,4 +66,6 @@ Copyright 2017-2026 Davide Alberani <da@mimante.net>, RaspiBO <info@raspibo.org>
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License: http://creativecommons.org/licenses/by-sa/4.0/
 
-This work includes reveal.js and other free software; see their own licenses.
+reveal.js and its bundled dependencies have their own licenses; see
+[reveal.js LICENSE](reveal.js/LICENSE). The original reveal.js license notice is
+also preserved in [LICENSE.revealjs](LICENSE.revealjs).
